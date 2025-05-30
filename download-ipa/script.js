@@ -150,3 +150,17 @@ function downloadAll(arrparam, el, clickbool,d) {
     }
     return rtv;
 }
+async function downloadAll0(arrparam){
+    var rtv=[];
+    if (!(arrparam instanceof Array)) {
+        return rtv;
+    }
+    for (var i = 0; i < arrparam.length; i++) {
+        var link = await fetch(arrparam[i]);
+        var blob = await link.blob();
+        var linkt =  URL.createObjectURL(blob);
+        var link = createDownloadLink(linkt,false,true);
+        rtv.push(link);
+    }
+    return rtv;
+}
