@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동 조교</title>
+    <script src="./pronunciation/sound.js"></script>
+</head>
+
+<body>
+    <div class="body">
+        <button id="startBtn">시작</button>
+    </div>
+    <script>
+        player.fromstr('annyŏnghaseyo');
+        document.querySelector('#startBtn').addEventListener("click", (ev) => {
+            player.playAudio();
+        })
+    </script>
+</body>
+
+</html>
