@@ -58,6 +58,10 @@ joinSounds.prototype = {
                 rtarr.push(this.map['ŭi']);
                 i += 1;
                 continue;
+            } else if (getsubstr(strparam, i, 2) === 'ng') {
+                rtarr.push(this.map['ng']);
+                i += 1;
+                continue;
             }
             rtarr.push(this.map[strparam[i]]);
         }
@@ -67,11 +71,11 @@ joinSounds.prototype = {
     playAudio: function () {
         for (var i = 0; i < this.audioArr.length; i++) {
             if (this.audioArr[i] instanceof Array) {
-                this.audio.src = '../src/audio/mp3/' + this.audioArr[i][0] + '.mp3';
+                this.audio.src = './src/audio/mp3/' + this.audioArr[i][0] + '.mp3';
                 this.audio.play();
                 setTimeout(() => {
                     this.audio.pause();
-                    this.audio.src = '../src/audio/mp3/' + this.audioArr[i][1] + '.mp3';
+                    this.audio.src = './src/audio/mp3/' + this.audioArr[i][1] + '.mp3';
                     this.audio.play();
                 }, this.audioArr[i][0].dur || 100);
                 setTimeout(() => {
@@ -79,7 +83,7 @@ joinSounds.prototype = {
                 }, this.audioArr[i][0].dur + this.audioArr[i][1].dur || 200);
                 continue;
             }
-            this.audio.src = '../src/audio/mp3/' + this.audioArr[i] + '.mp3';
+            this.audio.src = './src/audio/mp3/' + this.audioArr[i] + '.mp3';
             this.audio.play();
             setTimeout(() => {
                 this.audio.pause();
@@ -114,4 +118,5 @@ var player = new joinSounds({
     'ae': 'Near-open_front_unrounded_vowel',
     'oe': 'Close-mid_front_rounded_vowel',
     'ŭi': ['Close_back_unrounded_vowel', 'Close_front_unrounded_vowel'],
+    'ng': 'Velar_nasal',
 });
