@@ -126,15 +126,19 @@ function createDownloadLink(src, el) {
     return (el instanceof HTMLElement ? el : document.body).appendChild(a);
 }
 function downloadAll(arrparam, el, clickbool) {
+    var rtv=[];
     if (!(arrparam instanceof Array)) {
-        return;
+        return rtv;
     }
     for (var i = 0; i < arrparam.length; i++) {
-        createDownloadLink(arrparam[i], el);
+        var link = createDownloadLink(arrparam[i], el);
+        link.download=arrparam[i].split('.')[arrparam[i].split('.').lastIndexOf()]+'.mp3';
+        rtv.push(link);
     }
     if (clickbool) {
         Array.from(document.querySelectorAll('a.download-a')).forEach((val, idx, arr) => {
             val.click();
         });
     }
+    return rtv;
 }
