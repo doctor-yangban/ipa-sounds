@@ -118,20 +118,27 @@ var arr0 = [
     "https://www.internationalphoneticalphabet.org/ipa-chart-audio/mp3/Voiced_alveolo-palatal_affricate.mp3",
     "https://www.internationalphoneticalphabet.org/ipa-chart-audio/mp3/Voiced_retroflex_affricate.mp3"
 ];
-function createDownloadLink(src, el) {
+function createDownloadLink(src, el, download_directly) {
     var a = document.createElement("a");
-    a.href = src;
-    //a.download = 'download';
+    a.setAttribute('href', src);
+    a.setAttribute('download', src.split('.')[src.split('.').lastIndexOf()-1]+'.mp3');
     a.className = 'download-a';
+    if (download_directly){
+        a.click();
+        return false;
+    }
     return (el instanceof HTMLElement ? el : document.body).appendChild(a);
 }
-function downloadAll(arrparam, el, clickbool) {
+function downloadAll(arrparam, el, clickbool,d) {
     var rtv=[];
     if (!(arrparam instanceof Array)) {
         return rtv;
     }
     for (var i = 0; i < arrparam.length; i++) {
-        var link = createDownloadLink(arrparam[i], el);
+        var link = createDownloadLink(arrparam[i], el,d);
+        if (!link){
+            continue;
+        }
         link.download=arrparam[i].split('.')[arrparam[i].split('.').lastIndexOf()-1]+'.mp3';
         link.innerHTML=arrparam[i];
         rtv.push(link);
