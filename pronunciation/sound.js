@@ -67,11 +67,11 @@ joinSounds.prototype = {
     playAudio: function () {
         for (var i = 0; i < this.audioArr.length; i++) {
             if (this.audioArr[i] instanceof Array) {
-                this.audio.src = './src/audio/mp3/' + this.audioArr[i][0] + '.mp3';
+                this.audio.src = '../src/audio/mp3/' + this.audioArr[i][0] + '.mp3';
                 this.audio.play();
                 setTimeout(() => {
                     this.audio.pause();
-                    this.audio.src = './src/audio/mp3/' + this.audioArr[i][1] + '.mp3';
+                    this.audio.src = '../src/audio/mp3/' + this.audioArr[i][1] + '.mp3';
                     this.audio.play();
                 }, this.audioArr[i][0].dur || 100);
                 setTimeout(() => {
@@ -79,7 +79,7 @@ joinSounds.prototype = {
                 }, this.audioArr[i][0].dur + this.audioArr[i][1].dur || 200);
                 continue;
             }
-            this.audio.src = './src/audio/mp3/' + this.audioArr[i] + '.mp3';
+            this.audio.src = '../src/audio/mp3/' + this.audioArr[i] + '.mp3';
             this.audio.play();
             setTimeout(() => {
                 this.audio.pause();
