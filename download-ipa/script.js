@@ -121,7 +121,7 @@ var arr0 = [
 function createDownloadLink(src, el) {
     var a = document.createElement("a");
     a.href = src;
-    a.download = 'download';
+    //a.download = 'download';
     a.className = 'download-a';
     return (el instanceof HTMLElement ? el : document.body).appendChild(a);
 }
@@ -132,10 +132,11 @@ function downloadAll(arrparam, el, clickbool) {
     }
     for (var i = 0; i < arrparam.length; i++) {
         var link = createDownloadLink(arrparam[i], el);
-        link.download=arrparam[i].split('.')[arrparam[i].split('.').lastIndexOf()]+'.mp3';
+        link.download=arrparam[i].split('.')[arrparam[i].split('.').lastIndexOf()-1]+'.mp3';
+        link.innerHTML=arrparam[i];
         rtv.push(link);
     }
-    if (clickbool) {
+    if (clickbool===true) {
         Array.from(document.querySelectorAll('a.download-a')).forEach((val, idx, arr) => {
             val.click();
         });
