@@ -70,6 +70,7 @@ joinSounds.prototype = {
     },
     playAudio: function () {
         for (var i = 0; i < this.audioArr.length; i++) {
+            this.audio.pause();
             if (this.audioArr[i] instanceof Array) {
                 this.audio.src = './src/audio/mp3/' + this.audioArr[i][0] + '.mp3';
                 this.audio.play();
