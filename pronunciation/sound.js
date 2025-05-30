@@ -79,13 +79,13 @@ joinSounds.prototype = {
                 setTimeout(() => {
                     this.audio.pause();
                     this.audio.src = './src/audio/mp3/' + this.audioArr[i][1] + '.mp3';
-                }, this.audioArr[i][0].dur || 100);
+                },  100);
                 setTimeout(() => {
                     this.audio.play();
-                }, this.audioArr[i][0].dur + 10 || 110);
+                },110);
                 setTimeout(() => {
                     this.audio.pause();
-                }, this.audioArr[i][0].dur + this.audioArr[i][1].dur || 200);
+                }, 200);
                 continue;
             }
             this.audio.src = './src/audio/mp3/' + this.audioArr[i] + '.mp3';
@@ -94,7 +94,7 @@ joinSounds.prototype = {
             }, 10);
             setTimeout(() => {
                 this.audio.pause();
-            }, this.audioArr[i].dur || 100);
+            },  100);
         }
     },
 }
