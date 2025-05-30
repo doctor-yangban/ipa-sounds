@@ -75,26 +75,26 @@ joinSounds.prototype = {
                 this.audio.src = './src/audio/mp3/' + this.audioArr[i][0] + '.mp3';
                 setTimeout(() => {
                     this.audio.play();
-                }, 10);
+                }, 50);
                 setTimeout(() => {
                     this.audio.pause();
                     this.audio.src = './src/audio/mp3/' + this.audioArr[i][1] + '.mp3';
-                },  100);
+                },  150);
                 setTimeout(() => {
                     this.audio.play();
-                },110);
+                },200);
                 setTimeout(() => {
                     this.audio.pause();
-                }, 200);
+                }, 350);
                 continue;
             }
             this.audio.src = './src/audio/mp3/' + this.audioArr[i] + '.mp3';
             setTimeout(() => {
                 this.audio.play();
-            }, 10);
+            }, 50);
             setTimeout(() => {
                 this.audio.pause();
-            },  100);
+            },  200);
         }
     },
 }
